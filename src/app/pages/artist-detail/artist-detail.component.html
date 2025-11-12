@@ -1,0 +1,19 @@
+<div *ngIf="artist">
+  <h3>{{ artist.name }}</h3>
+  <p>{{ artist.bio }}</p>
+
+  <h5>Concerts</h5>
+  <div *ngFor="let c of concerts" class="mb-2">
+    <div class="card" appHighlight>
+      <div class="card-body">
+        <h6>
+          {{ c.title }}
+          <span *ngIf="c.reservations > 50" class="badge bg-warning text-dark ms-2">Populaire</span>
+        </h6>
+        <p>{{ c.date | date:'medium' }} — {{ c.venue }}</p>
+        <button class="btn btn-sm btn-success" (click)="addToAgenda(c)">Ajouter à mon agenda</button>
+        <a [routerLink]="['/reservations', c.id]" class="btn btn-sm btn-primary ms-2">Réserver</a>
+      </div>
+    </div>
+  </div>
+</div>

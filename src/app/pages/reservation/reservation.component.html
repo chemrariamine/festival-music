@@ -1,0 +1,21 @@
+<div *ngIf="concert; else noConcert">
+  <h4>Réserver — {{ concert.title }}</h4>
+  <p>{{ concert.date | date:'medium' }} — {{ concert.venue }}</p>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="mb-2">
+      <input name="name" ngModel placeholder="Nom" class="form-control" required />
+    </div>
+    <div class="mb-2">
+      <input name="email" ngModel placeholder="Email" class="form-control" required email />
+    </div>
+    <div class="mb-2">
+      <input name="places" type="number" ngModel placeholder="Nombre de places" class="form-control"
+             required min="1" [max]="concert.capacity - concert.reservations" />
+      <small class="form-text text-muted">Places restantes : {{ concert.capacity - concert.reservations }}</small>
+    </div>
+    <button class="btn btn-primary" [disabled]="f.invalid">Confirmer</button>
+  </form>
+
+  <div class="mt-2" *ngIf="message">{{ message }}</div>
+</div>
+<ng-template #noConcert><div class="alert alert-warning">Concert introuvable.</div></ng-template>

@@ -1,0 +1,19 @@
+.navbar {
+    background: linear-gradient(135deg, #7f5af0 0%, #2cb67d 100%) !important;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #fffffe !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.nav-link {
+    color: #fffffe !important;
+    font-weight: 600;
+    padding: 10px 15px !important;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
